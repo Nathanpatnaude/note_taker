@@ -32,12 +32,12 @@ app.post('/api/notes', (req, res) => {
       text: text,
       id: 0,
     };
-    console.log(newNote);
     fs.readFile('./db/db.json', 'utf8', (err, data) => {
       if (err) {
         console.error(err);
       } else {
         const notesArr = JSON.parse(data);
+        // Auto_increments id based off the array
         newNote.id = notesArr.length;
         notesArr.push(newNote);
         fs.writeFile('./db/db.json', JSON.stringify(notesArr, null, 4), (err) =>
@@ -58,10 +58,12 @@ app.delete('/api/notes/:id', (req, res) => {
       console.error(err);
     } else {
       var notesArr = JSON.parse(data);
-      console.log(notesArr, noteID);
+      // if deleting the last array item: pop()
       if (noteID == notesArr.length - 1) {
         notesArr.pop();
       } else {
+        // Otherwise find and splice where notesArr[i]=noteID
+        // then continues to reset all notesArr.id toEqual its array position
         for (let i = 0; i < notesArr.length; i++) {
           if (notesArr[i].id == noteID) {
             notesArr.splice(i, 1);
