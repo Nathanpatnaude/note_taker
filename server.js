@@ -59,20 +59,19 @@ app.delete('/api/notes/:id', (req, res) => {
     } else {
       var notesArr = JSON.parse(data);
       console.log(notesArr, noteID);
-      for (let i = 0; i < notesArr.length; i++) {
-        if (notesArr[i].id == noteID && i > 0 && i < notesArr.length - 1) {
-          notesArr.splice(i, 1);
-          notesArr[i].id = i;
-        } else if (notesArr.length === 1) {
-          notesArr = [];
-        } else if (i === notesArr.length - 1) {
-          notesArr.pop();
-        } else {
-        notesArr[i].id = i;
+      if (noteID == notesArr.length - 1) {
+        notesArr.pop();
+      } else {
+        for (let i = 0; i < notesArr.length; i++) {
+          if (notesArr[i].id == noteID) {
+            notesArr.splice(i, 1);
+            notesArr[i].id = i;
+          } else
+            notesArr[i].id = i;
         }
       }
       fs.writeFile('./db/db.json', JSON.stringify(notesArr, null, 4), (err) =>
-      err ? console.error(err) : console.info(`\nNotes Deleted from ./db/db.json`)
+        err ? console.error(err) : console.info(`\nNotes Deleted from ./db/db.json`)
       );
       res.json(`Note ${noteID} has been deleted!`);
     }
