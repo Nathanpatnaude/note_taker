@@ -60,10 +60,14 @@ app.delete('/api/notes/:id', (req, res) => {
       var notesArr = JSON.parse(data);
       console.log(notesArr, noteID);
       for (let i = 0; i < notesArr.length; i++) {
-        if (notesArr[i].id == noteID) {
+        if (notesArr[i].id == noteID && i > 0) {
           notesArr.splice(i, 1);
+          notesArr[i].id = i;
+        } else if (i === 0) {
+          notesArr = [];
+        } else {
+        notesArr[i].id = i;
         }
-        notesArr.id = i;
       }
       fs.writeFile('./db/db.json', JSON.stringify(notesArr, null, 4), (err) =>
       err ? console.error(err) : console.info(`\nNotes Deleted from ./db/db.json`)
