@@ -60,11 +60,13 @@ app.delete('/api/notes/:id', (req, res) => {
       var notesArr = JSON.parse(data);
       console.log(notesArr, noteID);
       for (let i = 0; i < notesArr.length; i++) {
-        if (notesArr[i].id == noteID && i > 0) {
+        if (notesArr[i].id == noteID && i > 0 && i < notesArr.length - 1) {
           notesArr.splice(i, 1);
           notesArr[i].id = i;
-        } else if (i === 0) {
+        } else if (notesArr.length === 1) {
           notesArr = [];
+        } else if (i === notesArr.length - 1) {
+          notesArr.pop();
         } else {
         notesArr[i].id = i;
         }
