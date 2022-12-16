@@ -1,7 +1,37 @@
 [
     {
-        "title": "tuty",
-        "text": "tyutyutyu",
+        "title": "Laundry",
+        "text": "do it",
         "id": 1
+    },
+    {
+        "title": "Replace Stair Treads",
+        "text": "yes",
+        "id": 2
+    },
+    {
+        "title": "Install Bathroom Vent",
+        "text": "not bad",
+        "id": 3
+    },
+    {
+        "title": "Write 6 pages",
+        "text": "just do it",
+        "id": 4
+    },
+    {
+        "title": "Stretch",
+        "text": "yoga more like yo  duh!",
+        "id": 5
+    },
+    {
+        "title": "Paint Basement",
+        "text": "once the paint comes",
+        "id": 6
+    },
+    {
+        "title": "Call Joey about 1/13",
+        "text": "Call time is 6AM",
+        "id": 7
     }
 ]

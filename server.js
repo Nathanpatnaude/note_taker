@@ -63,7 +63,7 @@ app.delete('/api/notes/:id', (req, res) => {
         notesArr.pop();
       } else {
         // Otherwise find and splice where notesArr[i].id=noteID
-        // then continues to reset all notesArr.id toEqual its array position
+        // then continues to reset all notesArr.id toEqual its array position+1
         for (let i = 0; i < notesArr.length; i++) {
           if (notesArr[i].id == noteID) {
             notesArr.splice(i, 1);
