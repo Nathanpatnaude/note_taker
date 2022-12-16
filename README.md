@@ -16,7 +16,7 @@
   
 A HTML based app with a server back end that allows the user to input a note with a name and description. It can then be saved to a server db.json file so it persists until the user removes the note by clicked the appripriate icons.
 
- ![team profile Gen8r ui](./Assets/Notetaker.png)</br></br>[CLICK HERE -- For the Deployed Site]()  
+ ![team profile Gen8r ui](./Assets/Notetaker.png)</br></br>[CLICK HERE -- For the Deployed Site](https://hidden-cliffs-61887.herokuapp.com/notes)  
   
 
 
